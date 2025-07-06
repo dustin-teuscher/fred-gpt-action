@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "fred_macro_data",
+  "name_for_human": "FRED Macroeconomic Data",
+  "description_for_model": "Fetches U.S. macroeconomic indicators from the FRED API like CPI, GDP, and unemployment.",
+  "description_for_human": "Query U.S. economic data from the FRED database using your API key.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://dustin-teuscher.github.io/fred-gpt-action/openapi.yaml"
+  },
+  "logo_url": "https://dustin-teuscher.github.io/fred-gpt-action/logo.png",
+  "contact_email": "your@email.com",
+  "legal_info_url": "https://fred.stlouisfed.org/"
+}
