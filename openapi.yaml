@@ -5,8 +5,8 @@ info:
   version: "1.0.0"
 servers:
   - url: https://api.stlouisfed.org
-paths:
-  /fred/series/observations:
+
+paths: /fred/series/observations:
     get:
       operationId: getObservations
       summary: Get time series observations
@@ -16,28 +16,23 @@ paths:
           required: true
           schema:
             type: string
-          description: The FRED series ID (e.g., CPIAUCSL)
         - name: api_key
           in: query
           required: true
           schema:
             type: string
-          description: Your FRED API key
         - name: file_type
           in: query
-          required: false
           schema:
             type: string
             default: json
         - name: observation_start
           in: query
-          required: false
           schema:
             type: string
             format: date
         - name: observation_end
           in: query
-          required: false
           schema:
             type: string
             format: date
