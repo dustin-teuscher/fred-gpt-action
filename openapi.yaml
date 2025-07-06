@@ -4,41 +4,44 @@ info:
   description: Retrieve economic data from FRED using your API key.
   version: "1.0.0"
 servers:
-  - url: https://api.stlouisfed.org/fred/
+  - url: https://api.stlouisfed.org
 
-paths: series/observations:
+paths: /fred/series/observations:
     get:
       operationId: getObservations
       summary: Get time series observations
       parameters:
-        - name: series_id
-          in: query
+        - in: query
+          name: series_id
           required: true
           schema:
             type: string
-        - name: api_key
-          in: query
+        - in: query
+          name: api_key
           required: true
           schema:
             type: string
-        - name: file_type
-          in: query
+        - in: query
+          name: file_type
+          required: false
           schema:
             type: string
             default: json
-        - name: observation_start
-          in: query
+        - in: query
+          name: observation_start
+          required: false
           schema:
             type: string
             format: date
-        - name: observation_end
-          in: query
+        - in: query
+          name: observation_end
+          required: false
           schema:
             type: string
             format: date
       responses:
         '200':
-          description: A successful response
+          description: OK
           content:
             application/json:
               schema:
