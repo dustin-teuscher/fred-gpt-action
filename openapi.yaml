@@ -4,23 +4,24 @@ info:
   description: Get economic data from the FRED database using an API key.
   version: "1.0.0"
 servers:
-  - url: https://api.stlouisfed.org/
+  - url: https://api.stlouisfed.org
 paths:
   /fred/series/observations:
     get:
       summary: Get time series observations from FRED
+      operationId: getFredObservations
       parameters:
         - in: query
           name: series_id
+          required: true
           schema:
             type: string
-          required: true
           description: The ID of the FRED time series (e.g., CPIAUCSL)
         - in: query
           name: api_key
+          required: true
           schema:
             type: string
-          required: true
           description: Your FRED API key
         - in: query
           name: file_type
@@ -31,17 +32,17 @@ paths:
           name: observation_start
           schema:
             type: string
-          required: false
-          description: Start date (e.g., 2023-01-01)
+            format: date
+            example: 2023-01-01
         - in: query
           name: observation_end
           schema:
             type: string
-          required: false
-          description: End date (e.g., 2024-12-31)
+            format: date
+            example: 2024-12-31
       responses:
-        "200":
-          description: Successful response
+        '200':
+          description: A successful response
           content:
             application/json:
               schema:
