@@ -1,0 +1,48 @@
+openapi: 3.0.1
+info:
+  title: FRED API for GPT
+  description: Get economic data from the FRED database using an API key.
+  version: "1.0.0"
+servers:
+  - url: https://api.stlouisfed.org/fred
+paths:
+  /series/observations:
+    get:
+      summary: Get time series observations from FRED
+      parameters:
+        - in: query
+          name: series_id
+          schema:
+            type: string
+          required: true
+          description: The ID of the FRED time series (e.g., CPIAUCSL)
+        - in: query
+          name: api_key
+          schema:
+            type: string
+          required: true
+          description: Your FRED API key
+        - in: query
+          name: file_type
+          schema:
+            type: string
+            default: json
+        - in: query
+          name: observation_start
+          schema:
+            type: string
+          required: false
+          description: Start date (e.g., 2023-01-01)
+        - in: query
+          name: observation_end
+          schema:
+            type: string
+          required: false
+          description: End date (e.g., 2024-12-31)
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
