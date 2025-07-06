@@ -9,7 +9,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://dustin-teuscher.github.io/fred-gpt-action/openapi.yaml"
+    "url": "https://dustin-teuscher.github.io/fred-gpt-action/openapi.json"
   },
   "logo_url": "https://dustin-teuscher.github.io/fred-gpt-action/logo.png",
   "contact_email": "your@email.com",
