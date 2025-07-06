@@ -1,48 +1,31 @@
-openapi: 3.0.1
-info:
-  title: FRED API for GPT
-  description: Retrieve economic data from FRED using your API key.
-  version: "1.0.0"
-servers:
-  - url: https://api.stlouisfed.org
-
-paths: /fred/series/observations:
-    get:
-      operationId: getObservations
-      summary: Get time series observations
-      parameters:
-        - in: query
-          name: series_id
-          required: true
-          schema:
-            type: string
-        - in: query
-          name: api_key
-          required: true
-          schema:
-            type: string
-        - in: query
-          name: file_type
-          required: false
-          schema:
-            type: string
-            default: json
-        - in: query
-          name: observation_start
-          required: false
-          schema:
-            type: string
-            format: date
-        - in: query
-          name: observation_end
-          required: false
-          schema:
-            type: string
-            format: date
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "FRED API for GPT",
+    "description": "Retrieve economic data from FRED using your API key.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.stlouisfed.org"
+    }
+  ],
+  "paths": {
+    "/fred/series/observations": {
+      "get": {
+        "operationId": "getObservations",
+        "summary": "Get time series observations",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "series_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "api_key",
+            "required": true,
+            "schema": {
